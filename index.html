@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+     
+     function computerPlay() {
+        let comSelect = Math.floor(Math.random() * 3);
+        let selection = (comSelect === 0) ? "rock" :
+                        (comSelect === 1) ? "paper" : "scissors";
+        return selection;
+     }
+
+     function game() {
+        let gameCount = 0;
+        let yourScore = 0;
+        let compScore = 0;
+        let result;
+
+        for(gameCount; gameCount < 5; gameCount++) {
+            result = playRound(playerSelection, computerSelection);
+
+            switch(result) {
+                case 'You Lose':
+                    compScore++;
+                    break;
+                case 'You Win':
+                    yourScore++;
+                    break;
+                default:
+            }
+        }
+        return (yourScore == compScore) ? "The game is tied" :
+               (yourScore > compScore) ? "You win" : "Computer Wins";
+     }
+
+     function playRound(playerSelection, computerSelection) {
+        playerSelection.toLowercase;
+        let result;
+
+        if(playerSelection === computerSelection) {
+            return result = "Tie";
+        } 
+        else if (playerSelection == 'rock' && computerSelection == 'scissors' ||
+                 playerSelection == 'paper' && computerSelection == 'rock' ||
+                 playerSelection == 'scissors' && computerSlection == 'paper') {
+            return result = "You Win";
+        } 
+        else {
+            return result = "You lose";
+        }
+     }
+
+     const playerSelection = 'rock';
+     const computerSelection = computerPlay();
+     console.log(game());
+  </script>
+</body>
+</html>
