@@ -3,58 +3,21 @@
   <title>Page Title</title>
 </head>
 <body>
-  <script>
-     
-     function computerPlay() {
-        let comSelect = Math.floor(Math.random() * 3);
-        let selection = (comSelect === 0) ? "rock" :
-                        (comSelect === 1) ? "paper" : "scissors";
-        return selection;
-     }
+    <h1>Rock Paper Scissors</h1>
+    <div class="button">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <div class="score">
+        <h3><span>Your score: </span><span id="youScore">0</span></h3>
+        <h3><span>Computer score: </span><span id="compScore">0</span></h3>
+        <h3><span>Tied score: </span><span id="tiedScore">0</span></h3>
+    </div>
+    <div id="container">
+        <h2 id="message">Select a button to play</h2>
+    </div>
 
-     function game() {
-        let gameCount = 0;
-        let yourScore = 0;
-        let compScore = 0;
-        let result;
-
-        for(gameCount; gameCount < 5; gameCount++) {
-            result = playRound(playerSelection, computerSelection);
-
-            switch(result) {
-                case 'You Lose':
-                    compScore++;
-                    break;
-                case 'You Win':
-                    yourScore++;
-                    break;
-                default:
-            }
-        }
-        return (yourScore == compScore) ? "The game is tied" :
-               (yourScore > compScore) ? "You win" : "Computer Wins";
-     }
-
-     function playRound(playerSelection, computerSelection) {
-        playerSelection.toLowercase;
-        let result;
-
-        if(playerSelection === computerSelection) {
-            return result = "Tie";
-        } 
-        else if (playerSelection == 'rock' && computerSelection == 'scissors' ||
-                 playerSelection == 'paper' && computerSelection == 'rock' ||
-                 playerSelection == 'scissors' && computerSlection == 'paper') {
-            return result = "You Win";
-        } 
-        else {
-            return result = "You lose";
-        }
-     }
-
-     const playerSelection = 'rock';
-     const computerSelection = computerPlay();
-     console.log(game());
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
