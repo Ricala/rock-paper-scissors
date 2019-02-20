@@ -7,12 +7,14 @@ const tiedDraw = document.getElementById('tiedScore');
 const message = document.getElementById('message');
 const buttons = document.querySelectorAll('button');
 
+//Event listeners for selection buttons
 buttons.forEach((button) =>{
     button.addEventListener('click',function(){
         playRound(button.id);
         });
     })
 
+//returns computers choice
 function computerPlay() {
   let comSelect = Math.floor(Math.random() * 3);
   let selection = (comSelect === 0) ? "rock" :
@@ -20,6 +22,7 @@ function computerPlay() {
   return selection;
 }
 
+//plays each individual round
 function playRound(playerSelection) {
   let computerSelection = computerPlay();
   let result = "";
@@ -38,10 +41,11 @@ function playRound(playerSelection) {
         computerScore++;
         result = "l";
   }
-  setHtml(result);
+  setScoreMessages(result);
 }
 
-function setHtml(outcome) {
+//writes scores and messages to HTML
+function setScoreMessages(outcome) {
     tiedDraw.innerHTML = tiedScore;
     youDraw.innerHTML = playerScore;
     compDraw.innerHTML = computerScore;
@@ -59,6 +63,7 @@ function setHtml(outcome) {
     checkGame();
 }
 
+//check to see if game is over
 function checkGame() {
     if(playerScore >= 5){
         message.innerHTML = "You win the game!";
@@ -69,6 +74,7 @@ function checkGame() {
     }
 }
 
+//Ends game, creates option to restart
 function gameFinish() {
     const container = document.querySelector('#container');
     const resetButton = document.createElement('BUTTON');
@@ -86,12 +92,13 @@ function gameFinish() {
         })
 }
 
+//resets the game
 function resetAll(){
     playerScore = 0;
     computerScore = 0;
     tiedScore = 0;
     message.innerHTML = "New Game";
-    setHtml();
+    setScoreMessages();
 
     buttons.forEach((button) =>{
         button.disabled = false;
