@@ -91,6 +91,7 @@ function resetAll(){
     computerScore = 0;
     tiedScore = 0;
     message.innerHTML = "New Game";
+    setHtml();
 
     buttons.forEach((button) =>{
         button.disabled = false;
